@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'video.dart';
+
 void main() => runApp(application());
 
 class MyApp extends StatelessWidget {
@@ -31,13 +33,10 @@ class application extends StatefulWidget {
 }
 
 class _applicationState extends State<application> {
-  List<int> items = [];
+  List<Video> videos = Video.getVideoList();
 
   @override
   void initState() {
-    for(int i=0; i<50; i++) {
-      items.add(i);
-    }
     super.initState();
   }
 
@@ -48,15 +47,17 @@ class _applicationState extends State<application> {
       home: Scaffold(
         appBar: AppBar(title: new Text('List of arrays'),),
         body: ListView.builder(
-            itemCount: items.length,
+            itemCount: videos.length,
             itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  title: Text('item no : $index'),
+                  title: Text("${videos[index].title} ${videos[index].year} 年"),
                   trailing: Icon(Icons.arrow_forward_ios),
                   /*onTap: () => ScaffoldMessenger
                       .of(context)
                       .showSnackBar(SnackBar(content: Text(index.toString()))), */
-                  onTap: _launchURL,
+                  onTap: () {
+                    _launchURL(videos[index].url);
+                    },
                 );
             }),
       ),
@@ -64,8 +65,8 @@ class _applicationState extends State<application> {
   }
 }
 
-_launchURL() async {
-  const url = 'http://www.netflix.com/watch/70153404';
+_launchURL(url) async {
+  //const url = 'http://www.netflix.com/watch/70153404';
   if(Platform.isIOS) {
     if (await canLaunch(url)) {
       await launch(url, forceSafariVC: false);
