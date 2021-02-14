@@ -46,11 +46,16 @@ class _applicationState extends State<application> {
       title: "Array List",
       home: Scaffold(
         appBar: AppBar(title: new Text('List of arrays'),),
-        body: ListView.builder(
+        body: ListView.separated(
             itemCount: videos.length,
             itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  title: Text("${videos[index].title} ${videos[index].year} 年"),
+                  title: Text("${videos[index].title}"),
+                  leading: Image.asset(videos[index].image,
+                  width: 70.0,
+                  height: 70.0,),
+                  subtitle: Text("${videos[index].year} 年",
+                  textAlign: TextAlign.right,),
                   trailing: Icon(Icons.arrow_forward_ios),
                   /*onTap: () => ScaffoldMessenger
                       .of(context)
@@ -59,7 +64,10 @@ class _applicationState extends State<application> {
                     _launchURL(videos[index].url);
                     },
                 );
-            }),
+            },
+            separatorBuilder: (context, index) {
+              return Divider();
+              },),
       ),
     );
   }
@@ -87,4 +95,5 @@ _launchURL(url) async {
   }
 
 }
+
 
