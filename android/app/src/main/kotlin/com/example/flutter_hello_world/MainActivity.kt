@@ -1,4 +1,4 @@
-package com.example.flutter_hello_world
+package jp.kyuuki.video_list
 
 import io.flutter.embedding.android.FlutterActivity
 
