@@ -1,8 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.kyuuki.video_list">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -11,7 +9,7 @@
         </intent>
     </queries>
 
-   <application
+    <application
         android:label="Video List"
         android:icon="@mipmap/ic_launcher">
         <activity
