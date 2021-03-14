@@ -57,6 +57,20 @@ flutter:
   uses-material-design: true
   assets:
     - images/OnePiece.jpg
+    - images/2000.jpg
+    - images/2001.jpg
+    - images/2002.jpg
+    - images/2003.jpg
+    - images/2004.jpg
+    - images/2005.jpg
+    - images/2006.jpg
+    - images/2007.jpg
+    - images/2008.jpg
+    - images/2009.jpg
+    - images/2011.jpg
+    - images/2012.jpg
+    - images/2016.jpg
+    - images/2019.jpg
 
   # To add assets to your application, add an assets section, like this:
    #assets:
