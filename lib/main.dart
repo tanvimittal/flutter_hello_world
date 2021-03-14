@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final wordPair = WordPair.random();
     return MaterialApp(
-      title: 'Welcome to Flutter',
+      title: 'ワンピース映画リスト',
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Welcome to Flutter'),
@@ -43,9 +43,9 @@ class _applicationState extends State<application> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "Array List",
+      title: "映画リスト",
       home: Scaffold(
-        appBar: AppBar(title: new Text('List of arrays'),),
+        appBar: AppBar(title: new Text('映画リスト'),),
         body: ListView.separated(
             itemCount: videos.length,
             itemBuilder: (BuildContext context, int index) {

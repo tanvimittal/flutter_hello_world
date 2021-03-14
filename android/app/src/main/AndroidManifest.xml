@@ -10,8 +10,8 @@
     </queries>
 
     <application
-        android:label="Video List"
-        android:icon="@mipmap/ic_launcher">
+        android:label="ワンピース映画リスト"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
