@@ -86,14 +86,10 @@ _launchURL(url) async {
       }
     }
   }
-  if(!Platform.isIOS) {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 
+  if(!Platform.isIOS) {
+    await launch(url);
+  }
 }
 
 
