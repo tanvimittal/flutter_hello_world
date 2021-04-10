@@ -5,8 +5,24 @@ import 'package:english_words/english_words.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'video.dart';
+import 'config.dart';
 
-void main() => runApp(application());
+void main() {
+  Config.config = MainConfig();
+
+  runApp(application());
+}
+
+class MainConfig implements Config {
+  @override
+  int appId = 1;
+
+  @override
+  String appName = "ワンピース映画リスト";
+
+  @override
+  List<Video> videoList = Video.getVideoList();
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -33,7 +49,7 @@ class application extends StatefulWidget {
 }
 
 class _applicationState extends State<application> {
-  List<Video> videos = Video.getVideoList();
+  List<Video> videos = Config.config.videoList;
 
   @override
   void initState() {
@@ -43,9 +59,9 @@ class _applicationState extends State<application> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "映画リスト",
+      title: Config.config.appName,
       home: Scaffold(
-        appBar: AppBar(title: new Text('映画リスト'),),
+        appBar: AppBar(title: new Text(Config.config.appName),),
         body: ListView.separated(
             itemCount: videos.length,
             itemBuilder: (BuildContext context, int index) {

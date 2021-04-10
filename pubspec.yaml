@@ -71,6 +71,7 @@ flutter:
     - images/2012.jpg
     - images/2016.jpg
     - images/2019.jpg
+    - images/toeic.png
 
   # To add assets to your application, add an assets section, like this:
    #assets:
