@@ -63,27 +63,39 @@ class _applicationState extends State<application> {
       home: Scaffold(
         appBar: AppBar(title: new Text(Config.config.appName),),
         body: ListView.separated(
-            itemCount: videos.length,
-            itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text("${videos[index].title}"),
-                  leading: Image.asset(videos[index].image,
-                  width: 70.0,
-                  height: 70.0,),
-                  subtitle: Text("${videos[index].year} 年",
-                  textAlign: TextAlign.right,),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                  /*onTap: () => ScaffoldMessenger
-                      .of(context)
-                      .showSnackBar(SnackBar(content: Text(index.toString()))), */
-                  onTap: () {
-                    _launchURL(videos[index].url);
-                    },
-                );
+          itemCount: videos.length,
+          itemBuilder: (BuildContext context, int index) {
+            final Video video = videos[index];
+            Text subtitle;
+
+            if (video.year == null) {
+              subtitle = null;
+            } else {
+              subtitle = Text(
+                "${video.year} 年",
+                textAlign: TextAlign.right,
+              );
+            }
+
+            return ListTile(
+              title: Text("${video.title}"),
+              leading: Image.asset(
+                video.image,
+                width: 70.0,
+                height: 70.0,
+              ),
+              subtitle: subtitle,
+              trailing: Icon(Icons.arrow_forward_ios),
+              //onTap: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(index.toString()))),
+              onTap: () {
+                _launchURL(video.url);
+              },
+            );
             },
-            separatorBuilder: (context, index) {
-              return Divider();
-              },),
+          separatorBuilder: (context, index) {
+            return Divider();
+            },
+        ),
       ),
     );
   }
@@ -107,5 +119,3 @@ _launchURL(url) async {
     await launch(url);
   }
 }
-
-
