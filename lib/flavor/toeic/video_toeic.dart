@@ -1,6 +1,6 @@
 import '../../video.dart';
 
-class MyVideo {
+class VideoToeic {
   static List<Video> getVideoList() {
     List<Video> videos = [];
 

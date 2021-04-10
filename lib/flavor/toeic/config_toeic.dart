@@ -1,8 +1,8 @@
 import '../../config.dart';
 import '../../video.dart';
-import 'my_video.dart';
+import 'video_toeic.dart';
 
-class MyConfig implements Config {
+class ConfigToeic implements Config {
   @override
   int appId = 2;
 
@@ -10,5 +10,5 @@ class MyConfig implements Config {
   String appName = "TOEIC 動画リスト";
 
   @override
-  List<Video> videoList = MyVideo.getVideoList();
+  List<Video> videoList = VideoToeic.getVideoList();
 }
