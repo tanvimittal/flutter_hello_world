@@ -7,7 +7,7 @@ class ConfigToeic implements Config {
   int appId = 2;
 
   @override
-  String appName = "TOEIC 動画リスト";
+  String appName = "TOEIC リスニング動画リスト";
 
   @override
   List<Video> videoList = VideoToeic.getVideoList();

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.kyuuki.video_list">
+    package="jp.kyuuki.video_list.flutter.toeic">
 
     <queries>
         <intent>
@@ -10,7 +10,7 @@
     </queries>
 
     <application
-        android:label="ワンピース映画リスト"
+        android:label="TOEIC リスニング動画リスト"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
