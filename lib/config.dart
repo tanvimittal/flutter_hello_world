@@ -1,4 +1,4 @@
-import 'video.dart';
+import 'model/video.dart';
 
 abstract class Config {
   static Config config;

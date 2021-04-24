@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'config.dart';
-import 'video.dart';
+import 'model/video.dart';
 
 class Application extends StatefulWidget {
   @override

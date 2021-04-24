@@ -1,37 +1,60 @@
-import '../../video.dart';
+import 'package:sprintf/sprintf.dart';
+
+import '../../model/video.dart';
+import '../../model/video_you_tube.dart';
 
 class VideoToeic {
   static List<Video> getVideoList() {
+    // TOIEC Listening Test にある ID のリスト (index + 1 が回数になる)
+    // https://www.youtube.com/channel/UCALZsVSdq0v-oTVPYKvAcSA
+    List<String> videoIds = [
+      "fQ5dRLiQxuY",
+      "mVSGwPjE1zo",
+      "M8D-VWFc9Qg",
+      "rMYjsHvn1Rk",
+      "5q7xcn6vK2E",
+      "I76Wrclls-0",
+      "LgRE7JGgcmE",
+      "aUYUu_L_hls",
+      "QlwsP6Gcepk",
+      "iLwuUCC6UDs",
+    ];
+
+    // Transcript 付き
+    List<String> videoIdsWithTranscript = [
+      "q-nD-qTpi0E",
+      "s0EfWTA4AhQ",
+      "mITc6D7bu30",
+      "BsSuTC0pSZc",
+      "riLPjHuI_8o",
+      "lnamp0emHAk",
+      "622jSMXgVX0",
+      "oWX-eUAgAV0",
+      "6ax0NUoittk",
+      "cTXB1xsVAZY",
+    ];
+
     List<Video> videos = [];
 
-    videos.add(createYouTubeVideo(
-        title: "New TOEIC 2021 full listening and reading practice test with answers - Mar 30",
-        id: "eV7_HhZbkmM"));
-    videos.add(createYouTubeVideo(
-        title: "TOEIC Listening Test 2020 - Test 01",
-        id: "fQ5dRLiQxuY"));
-    videos.add(createYouTubeVideo(
-        title: "TOEIC LISTENING PART 2 ONLY 041 WITH TRANSCRIPTS AND ANSWERS",
-        id: "T1AbGNpw4LQ"));
-    videos.add(createYouTubeVideo(
-        title: "TOEIC TEST - TOEIC Listening Full Test 001",
-        id: "DXjS76vOqHc"));
-    videos.add(createYouTubeVideo(
-        title: "TED (How to learn any language in six months)",
-        id: "d0yGdNEWdn0"));
+    for (int i = 0; i < videoIds.length; i++) {
+      String number = sprintf("%02i", [i + 1]);
+      videos.add(createVideoToeic(
+          title: "TOEIC Listening Test 2020 - Test $number",
+          videoId: videoIds[i]));
+      videos.add(createVideoToeic(
+          title: "Transcripts for Test $number",
+          videoId: videoIdsWithTranscript[i]));
+    }
 
     return videos;
   }
 
   // 無理やり Named parameters を使ってみる
-  static Video createYouTubeVideo({String title, String id, String image = "images/toeic.png"}) {
-    final url = "https://www.youtube.com/watch?v=$id";
-
-    return createVideo(title, url, image);
+  static Video createVideoToeic({String title, String videoId, String image = "images/toeic.png"}) {
+    return createVideo(title, videoId, image);
   }
 
   // 無理やり Optional parameters を使ってみる
-  static Video createVideo(String title, String url, String image, [int year]) {
-    return Video(title, url, year, image);
-  }
+  static Video createVideo(String title, String videoId, String image, [int year]) =>
+    VideoYouTube(title: title, videoId: videoId, year: year, image: image);
 }

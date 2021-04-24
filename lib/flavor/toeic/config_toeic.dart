@@ -1,5 +1,5 @@
 import '../../config.dart';
-import '../../video.dart';
+import '../../model/video.dart';
 import 'video_toeic.dart';
 
 class ConfigToeic implements Config {
