@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'model/video.dart';
 
 abstract class Config {
@@ -5,6 +7,7 @@ abstract class Config {
 
   int appId;
   String appName;
+  MaterialColor primarySwatch = Colors.indigo;
 
   List<Video> videoList;
 }

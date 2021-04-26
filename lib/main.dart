@@ -19,6 +19,9 @@ class MainConfig implements Config {
   String appName = "ワンピース映画リスト";
 
   @override
+  MaterialColor primarySwatch = Colors.red;
+
+  @override
   List<Video> videoList = getVideoList();
 }
 
