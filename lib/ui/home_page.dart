@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../config.dart';
 import '../model/video.dart';
+import 'common_popup_menu_button.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -24,6 +25,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(Config.config.appName),
+        actions: [
+          CommonPopupMenuButton(context),
+        ],
       ),
       body: ListView.separated(
         padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
