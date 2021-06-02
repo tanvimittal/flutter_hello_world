@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 
 import '../config.dart';
 import '../model/video.dart';
@@ -18,6 +19,15 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    test();
+  }
+
+  Future<void> test() async {
+    // https://pub.dev/packages/http
+    var url = Uri.parse("https://ja.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Flutter");
+    var response = await http.get(url);
+
+    print("${response.body}");
   }
 
   @override

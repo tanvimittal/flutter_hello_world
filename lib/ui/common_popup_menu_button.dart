@@ -14,7 +14,7 @@ class CommonPopupMenuButton extends PopupMenuButton<PopupMenu>{
           value: PopupMenu.Contact,
         ),
         PopupMenuItem(
-          child: Text("アプリ情報"),  // TODO: 文字列リソースをどうする？
+          child: Text("このアプリについて"),  // TODO: 文字列リソースをどうする？
           value: PopupMenu.About,
         ),
       ];
